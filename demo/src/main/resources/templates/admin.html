@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:include="fragment/header::head(title='login')">
+</head>
+<body>
+<form action="#" th:action="@{/admin/addBook}" th:object="${book}" method="post">
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p>Author: <input type="text" th:field="*{author}"/></p>
+    <p>Bin: <input type="text" th:field="*{bin}"/></p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Bin</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.name}">Name</td>
+        <td th:text="${book.author}">Author</td>
+        <td th:text="${book.bin}">Bin</td>
+        <td>
+            <!--<a href="/admin/deleteBook" th:href="@{/notesEdit/__${notes.id}__}">Edit</a>-->
+            <a th:href="@{/admin/deleteBook(id=${book.id})}">Delete</a>
+            <a th:href="@{/admin/editBook(id=${book.id})}">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

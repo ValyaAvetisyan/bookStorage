@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment/header::head(title='login')">
+</head>
+<body>
+<form class="form-group" th:action="@{/admin/updateBook}" method="post">
+    <input th:type="hidden" name="id" th:field="${book.id}" />
+    <div class="form-group">
+        <label for="name">Id</label>
+        <input type="text" class="form-control" id="id" th:field="${book.id}" />
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" th:field="${book.name}" />
+    </div>
+    <div class="form-group">
+        <label for="author">Author</label>
+        <textarea class="form-control" id="author" th:field="${book.author}"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="bin">Bin</label>
+        <textarea class="form-control" id="bin" th:field="${book.bin}"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-primary" a th:href="@{admin}">Back</button>
+</form>
+
+</body>
+</html>

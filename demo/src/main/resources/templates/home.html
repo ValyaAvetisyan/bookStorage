@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment/header::head(title='home')">
+</head>
+<body>
+<h3>Welcome to Our Library</h3>
+<h4>These are books</h4>
+
+
+<!--<tr th:each="book: ${books}">-->
+    <!--<td th:text="${book.name}">Name</td>-->
+    <!--<td th:text="${book.author}">Author</td>-->
+    <!--<td th:text="${book.bin}">Bin</td>-->
+<!--<button type="submit" formmethod="post"> remove it</button>-->
+    <!--&lt;!&ndash;<a th:href="@{/home/takeIt}">Take it </a>&ndash;&gt;-->
+
+
+    <!--<form action="/action_page.php" method="get">-->
+        <!--Some info: <input type="text" name="lname"><br>-->
+        <!--<button type="submit">Take it</button>-->
+    <!--</form>-->
+
+
+<!--</tr>-->
+
+
+<div class="container">
+
+
+    <!--<p>-->
+        <!--<a href="/notesEdit" th:href="@{/notesEdit}">Create</a>-->
+    <!--</p>-->
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Bin</th>
+            <th>Take</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.name}">Name</td>
+            <td th:text="${book.author}">Author</td>
+            <td th:text="${book.bin}">Bin</td>
+            <td>
+                <a th:href="@{/home/takeIt(id=${book.id})}">Take it</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<!--&lt;!&ndash;<th:block th:each="book : ${books}">&ndash;&gt;-->
+<!--&lt;!&ndash;<tr>&ndash;&gt;-->
+<!--&lt;!&ndash;<td th:text="${book.name}">Book's name</td>&ndash;&gt;-->
+<!--&lt;!&ndash;<td th:text="${book.author}">Book's author</td>&ndash;&gt;-->
+<!--&lt;!&ndash;</tr>&ndash;&gt;-->
+<!--&lt;!&ndash;</th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;<ul th:each="book : ${books}">&ndash;&gt;-->
+<!--&lt;!&ndash;<li th:text="${book.name}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<li th:text="${book.author}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+
+
+</body>
+</html>
